@@ -27,14 +27,17 @@ class SubOptions extends ConsumerWidget {
     }).toList();
 
     return Container(
+      alignment: Alignment.center,
+      margin: EdgeInsets.only(left: 24, right: 24),
       height: 120,
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemCount: suggestions.length,
           itemBuilder: (context, index) {
             var imageAsset = suggestions[index];
-            return GestureDetector(
-              onTap: () {
+            return IconButton(
+              iconSize: 100,
+              onPressed: () {
                 switch (imageAsset.optionId) {
                   case Constants.OPTION_BODY:
                     bodyImage.state = imageAsset.imagePath;
@@ -47,7 +50,8 @@ class SubOptions extends ConsumerWidget {
                     break;
                 }
               },
-              child: Image.asset("assets/${imageAsset.imagePath}.PNG"),
+              icon: Image.asset("assets/${imageAsset.imagePath}.PNG", height: 100,),
+              // child: Image.asset("assets/${imageAsset.imagePath}.PNG"),
             );
           }),
     );

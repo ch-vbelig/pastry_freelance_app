@@ -14,24 +14,25 @@ class OptionButtonRow extends ConsumerWidget {
       selectedIndex: dishOption.state,
     );
     final options = GroupButtonOptions(
+      buttonHeight: 30,
       selectedColor: const Color(0xFF283157),
       borderRadius: BorderRadius.circular(16.0),
       unselectedBorderColor: const Color(0xFF283157),
       selectedTextStyle: const TextStyle(
         fontWeight: FontWeight.w400,
-        fontSize: 16,
+        fontSize: 14,
         color: Colors.white,
       ),
       unselectedTextStyle: const TextStyle(
         fontWeight: FontWeight.w400,
-        fontSize: 16,
+        fontSize: 14,
         color: Color(0xFF283157),
       ),
       mainGroupAlignment: MainGroupAlignment.start,
     );
 
     return Container(
-      margin: EdgeInsets.only(top:20),
+      margin: EdgeInsets.only(top: 0, left: 24, right: 24),
       child: GroupButton(
         controller: controller,
         options: options,
@@ -66,7 +67,7 @@ class OptionButtonRow extends ConsumerWidget {
           }
           print("OptionButtons: dishOption: ${dishOption.state} isSelected: $isSelected}");
         },
-        buttons: const ["Форма", "Начинка", "Крем", "Стиль", "Украшения", "Ярусы"],
+        buttons: const ["Форма", "Начинка", "Крем", "Стиль", "Декор", "Ярусы"],
       ),
     );
   }

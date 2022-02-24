@@ -32,7 +32,7 @@ class TypeButtonRow extends ConsumerWidget {
     );
 
     return Container(
-      margin: EdgeInsets.only(top: 20),
+      margin: EdgeInsets.only(top: 10),
       child: GroupButton(
         controller: controller,
         options: options,

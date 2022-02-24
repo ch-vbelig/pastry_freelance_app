@@ -12,9 +12,13 @@ class CakeConstructorPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Конструктор'),
+        centerTitle: true,
+      ),
       body: SafeArea(
         child: ListView(
-          padding: const EdgeInsets.only(left: 16, right: 16, bottom: 32),
+          // padding: const EdgeInsets.only(left: 16, right: 16, bottom: 32),
           children: [
             TypeButtonRow(),
             OptionButtonRow(),

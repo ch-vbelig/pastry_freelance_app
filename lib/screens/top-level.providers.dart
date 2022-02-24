@@ -4,19 +4,20 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 final dishTypeProvider = StateProvider<int>((ref) => Constants.TYPE_CAKE);
 final dishOptionProvider = StateProvider<int>((ref) => Constants.OPTION_BODY);
 final dishFormOptionProvider = StateProvider<int>((ref) => Constants.FORM_ROUND);
-final imageBodyProvider = StateProvider<String>((ref) => 'cake-round-body-dark');
-final imageFillerProvider = StateProvider<String>((ref) => 'cake-round-filler-dark');
-final imageCreamProvider = StateProvider<String>((ref) => 'cream-dark');
+final imageBodyProvider = StateProvider<String>((ref) => 'place-holder');
+final imageFillerProvider = StateProvider<String>((ref) => 'place-holder');
+final imageCreamProvider = StateProvider<String>((ref) => 'place-holder');
+final imageFormProvider = StateProvider<String>((ref) => 'place-holder');
 
 
 class ImageAsset {
-  int typeId;
+  int? typeId;
   int optionId;
   int? formId;
   String imagePath;
 
   ImageAsset({
-    required this.typeId,
+    this.typeId,
     required this.optionId,
     this.formId,
     required this.imagePath,
@@ -91,13 +92,11 @@ final images = [
       imagePath: 'cake-square-filler-light'
   ),
   ImageAsset(
-      typeId: Constants.TYPE_CAKE,
       optionId: Constants.OPTION_FILLER,
       formId: Constants.FORM_SQUARE,
       imagePath: 'cake-square-filler-pink'
   ),
   ImageAsset(
-      typeId: Constants.TYPE_CAKE,
       optionId: Constants.OPTION_CREAM,
       imagePath: 'cream-dark'
   ),
@@ -123,4 +122,76 @@ final images = [
       formId: Constants.FORM_SQUARE,
       imagePath: 'cake-square-form'
   ),
+  ImageAsset(
+      optionId: Constants.OPTION_CREAM,
+      imagePath: 'style-birthday'
+  ),
+  ImageAsset(
+      optionId: Constants.OPTION_CREAM,
+      imagePath: 'style-wedding'
+  ),
+  ImageAsset(
+    typeId: Constants.TYPE_CUPCAKE,
+      optionId: Constants.OPTION_BODY,
+      formId: Constants.FORM_ROUND,
+      imagePath: 'cupcake-round-body-dark'
+  ),
+  ImageAsset(
+      typeId: Constants.TYPE_CUPCAKE,
+      optionId: Constants.OPTION_BODY,
+      formId: Constants.FORM_ROUND,
+      imagePath: 'cupcake-round-body-light'
+  ),
+  ImageAsset(
+      typeId: Constants.TYPE_CUPCAKE,
+      optionId: Constants.OPTION_FILLER,
+      formId: Constants.FORM_ROUND,
+      imagePath: 'cupcake-round-filler-dark'
+  ),
+  ImageAsset(
+      typeId: Constants.TYPE_CUPCAKE,
+      optionId: Constants.OPTION_FILLER,
+      formId: Constants.FORM_ROUND,
+      imagePath: 'cupcake-round-filler-pink'
+  ),
+
+  ImageAsset(
+      typeId: Constants.TYPE_CUPCAKE,
+      optionId: Constants.OPTION_FORM,
+      formId: Constants.FORM_ROUND,
+      imagePath: 'cupcake-round-form'
+  ),
+  ImageAsset(
+      typeId: Constants.TYPE_ICECREAM,
+      optionId: Constants.OPTION_FORM,
+      formId: Constants.FORM_ROUND,
+      imagePath: 'icecream-type'
+  ),
+  ImageAsset(
+      typeId: Constants.TYPE_ICECREAM,
+      optionId: Constants.OPTION_BODY,
+      formId: Constants.FORM_ROUND,
+      imagePath: 'icecream-round-body-blue'
+  ),
+  ImageAsset(
+      typeId: Constants.TYPE_ICECREAM,
+      optionId: Constants.OPTION_BODY,
+      formId: Constants.FORM_ROUND,
+      imagePath: 'icecream-round-body-dark'
+  ),
+  ImageAsset(
+      typeId: Constants.TYPE_ICECREAM,
+      optionId: Constants.OPTION_FILLER,
+      formId: Constants.FORM_ROUND,
+      imagePath: 'icecream-round-filler-dark'
+  ),
+  ImageAsset(
+      typeId: Constants.TYPE_ICECREAM,
+      optionId: Constants.OPTION_FILLER,
+      formId: Constants.FORM_ROUND,
+      imagePath: 'icecream-round-filler-pink'
+  ),
+
+
+
 ];
