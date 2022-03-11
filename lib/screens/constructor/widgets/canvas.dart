@@ -8,6 +8,7 @@ class Canvas extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final isDropped = ref.watch(isDroppedProvider.state);
     final dishType = ref.watch(dishTypeProvider.state);
     final dishForm = ref.watch(dishFormOptionProvider.state);
     final dishOption = ref.watch(dishOptionProvider.state);
@@ -18,21 +19,20 @@ class Canvas extends ConsumerWidget {
 
     final suggestions = images.where((image) {
       if (dishOption.state == Constants.OPTION_BODY) {
-        return image.typeId == dishType.state && image.optionId == Constants.OPTION_FORM;
+        return image.typeId == dishType.state &&
+            image.optionId == Constants.OPTION_FORM;
       } else {
         return false;
       }
     }).toList();
 
-    // suggestions.forEach((element) {
-    //   print(element.imagePath);
-    // });
 
     return Container(
+      margin: EdgeInsets.only(top: 20),
       alignment: Alignment.center,
       height: 360,
       decoration: BoxDecoration(
-          color: Color(0xffF0F0F0),
+        color: Color(0xffF7F7F7),
         borderRadius: BorderRadius.circular(40),
       ),
       child: Stack(children: [
@@ -42,6 +42,31 @@ class Canvas extends ConsumerWidget {
         _buildImage(bodyImage.state),
         _buildImage(fillerImage.state),
         _buildImage(creamImage.state),
+        Positioned(
+          top: 0,
+          right: 0,
+          child: Draggable(
+            data: 1,
+            child:Container(height: 24, width: 24, color: Colors.blue,),
+            childWhenDragging: Container(height: 24, width: 24, color: Colors.grey,),
+            feedback: Container(height: 24, width: 24, color: Colors.blue,),
+          ),
+        ),
+        DragTarget(
+          builder: (context, accepted, rejected) {
+            // return Container( height:32, width: 32, color: Colors.black,);
+            return isDropped.state ? Container(height: 32, width: 32, color: Colors.blue) : Container( height:32, width: 32, color: Colors.black,);
+          },
+          onWillAccept: (data){
+            print('onWillAccept');
+            return true;
+          },
+          onAccept: (data){
+            print('onAccept');
+            isDropped.state = true;
+          },
+        ),
+
         Positioned(
           bottom: 0,
           left: 0,

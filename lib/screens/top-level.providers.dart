@@ -1,28 +1,26 @@
 import 'package:bakecake_app/constants/constants.dart';
+import 'package:bakecake_app/model/data/data.type.dart';
+import 'package:bakecake_app/model/data/image.asset.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final dishTypeProvider = StateProvider<int>((ref) => Constants.TYPE_CAKE);
+final dishChanged = StateProvider<bool>((ref) => false);
+final dishTypeProvider = StateProvider<int>((ref) => 0);
 final dishOptionProvider = StateProvider<int>((ref) => Constants.OPTION_BODY);
-final dishFormOptionProvider = StateProvider<int>((ref) => Constants.FORM_ROUND);
+final dishFormOptionProvider = StateProvider<int>((ref) =>
+Constants.FORM_ROUND);
 final imageBodyProvider = StateProvider<String>((ref) => 'place-holder');
 final imageFillerProvider = StateProvider<String>((ref) => 'place-holder');
 final imageCreamProvider = StateProvider<String>((ref) => 'place-holder');
 final imageFormProvider = StateProvider<String>((ref) => 'place-holder');
 
-
-class ImageAsset {
-  int? typeId;
-  int optionId;
-  int? formId;
-  String imagePath;
-
-  ImageAsset({
-    this.typeId,
-    required this.optionId,
-    this.formId,
-    required this.imagePath,
-  }) {}
-}
+final isDroppedProvider = StateProvider<bool>((ref) => false);
+// TODO: Later it will be FutureProvider
+final dishTypes = <DishType>[
+  DishType(typeName: 'cake-type', iconImageName: 'cake-icon'),
+  DishType(typeName: 'cupcake-type', iconImageName: 'cupcake-icon'),
+  DishType(typeName: 'icecream-type', iconImageName: 'icecream-icon'),
+  DishType(typeName:  'croissant-type', iconImageName:  'croissant-icon'),
+];
 
 final images = [
   ImageAsset(
@@ -131,7 +129,7 @@ final images = [
       imagePath: 'style-wedding'
   ),
   ImageAsset(
-    typeId: Constants.TYPE_CUPCAKE,
+      typeId: Constants.TYPE_CUPCAKE,
       optionId: Constants.OPTION_BODY,
       formId: Constants.FORM_ROUND,
       imagePath: 'cupcake-round-body-dark'
@@ -191,7 +189,6 @@ final images = [
       formId: Constants.FORM_ROUND,
       imagePath: 'icecream-round-filler-pink'
   ),
-
 
 
 ];

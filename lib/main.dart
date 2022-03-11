@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.white,
           foregroundColor: Colors.black,
         ),
+        scaffoldBackgroundColor: Colors.white
       ),
       home: const CakeConstructorPage(),
     );

@@ -3,6 +3,7 @@ class Constants {
   static const TYPE_CAKE = 0;
   static const TYPE_CUPCAKE = 1;
   static const TYPE_ICECREAM = 2;
+  static const TYPE_CROISSANT = 3;
   static const OPTION_FORM = 5;
   static const OPTION_BODY = 0;
   static const OPTION_FILLER = 1;
