@@ -1,3 +1,4 @@
+import 'package:bakecake_app/constants/constants.dart';
 import 'package:bakecake_app/model/data/data.type.dart';
 import 'package:bakecake_app/screens/top-level.providers.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,7 @@ class DishTypeButtonRow extends ConsumerWidget {
     final imageFormProviderState = ref.watch(imageFormProvider.state);
 
     // Build Image Icon for each dish type
-    Widget _buildOption(int index, DishType dishType, StateController dishTypeProviderState) {
+    Widget _buildOption(int index, DishMenu dishType, StateController dishTypeProviderState) {
       final bool isSelected = index == dishTypeProviderState.state;
       return GestureDetector(
         onTap: (){
@@ -30,7 +31,7 @@ class DishTypeButtonRow extends ConsumerWidget {
         },
         child: Container(
           height: 70,
-          child: Image.asset("icons/${dishType.iconImageName}.png",
+          child: Image.asset("icons/${dishType.iconImageFile}",
             color: isSelected? Colors.white: Colors.black,
           ),
           decoration: BoxDecoration(

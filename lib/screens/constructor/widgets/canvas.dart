@@ -10,7 +10,7 @@ class Canvas extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final isDropped = ref.watch(isDroppedProvider.state);
     final dishType = ref.watch(dishTypeProvider.state);
-    final dishForm = ref.watch(dishFormOptionProvider.state);
+    final dishForm = ref.watch(dishFormProvider.state);
     final dishOption = ref.watch(dishOptionProvider.state);
     final bodyImage = ref.watch(imageBodyProvider.state);
     final fillerImage = ref.watch(imageFillerProvider.state);
@@ -35,61 +35,62 @@ class Canvas extends ConsumerWidget {
         color: Color(0xffF7F7F7),
         borderRadius: BorderRadius.circular(40),
       ),
-      child: Stack(children: [
+      child: Stack(
+        fit: StackFit.expand,
+          children: [
         // For forms
         // _buildImage("icecream-type"),
         _buildImage(formImage.state),
         _buildImage(bodyImage.state),
         _buildImage(fillerImage.state),
         _buildImage(creamImage.state),
+        // Positioned(
+        //   top: 0,
+        //   right: 0,
+        //   child: Draggable(
+        //     data: 1,
+        //     child:Container(height: 24, width: 24, color: Colors.blue,),
+        //     childWhenDragging: Container(height: 24, width: 24, color: Colors.grey,),
+        //     feedback: Container(height: 24, width: 24, color: Colors.blue,),
+        //   ),
+        // ),
+        // DragTarget(
+        //   builder: (context, accepted, rejected) {
+        //     // return Container( height:32, width: 32, color: Colors.black,);
+        //     return isDropped.state ? Container(height: 32, width: 32, color: Colors.blue) : Container( height:32, width: 32, color: Colors.black,);
+        //   },
+        //   onWillAccept: (data){
+        //     print('onWillAccept');
+        //     return true;
+        //   },
+        //   onAccept: (data){
+        //     print('onAccept');
+        //     isDropped.state = true;
+        //   },
+        // ),
+
         Positioned(
           top: 0,
           right: 0,
-          child: Draggable(
-            data: 1,
-            child:Container(height: 24, width: 24, color: Colors.blue,),
-            childWhenDragging: Container(height: 24, width: 24, color: Colors.grey,),
-            feedback: Container(height: 24, width: 24, color: Colors.blue,),
-          ),
-        ),
-        DragTarget(
-          builder: (context, accepted, rejected) {
-            // return Container( height:32, width: 32, color: Colors.black,);
-            return isDropped.state ? Container(height: 32, width: 32, color: Colors.blue) : Container( height:32, width: 32, color: Colors.black,);
-          },
-          onWillAccept: (data){
-            print('onWillAccept');
-            return true;
-          },
-          onAccept: (data){
-            print('onAccept');
-            isDropped.state = true;
-          },
-        ),
-
-        Positioned(
-          bottom: 0,
-          left: 0,
           child: Container(
-            height: 100,
-            width: 400,
+            width: 50,
+            height: 200,
             child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: suggestions.length,
+                scrollDirection: Axis.vertical,
+                itemCount: bodyTastes.length,
                 itemBuilder: (context, index) {
-                  var imageAsset = suggestions[index];
                   return IconButton(
-                    iconSize: 100,
+                    iconSize: 28,
                     onPressed: () {
-                      if (imageAsset.formId != null) {
-                        dishForm.state = imageAsset.formId!;
-                        formImage.state = imageAsset.imagePath;
-                      }
-                      print(imageAsset.formId);
+                      // if (imageAsset.formId != null) {
+                      //   dishForm.state = imageAsset.formId!;
+                      //   formImage.state = imageAsset.imagePath;
+                      // }
+                      // print(imageAsset.formId);
                     },
+                    // icon: Icon(Icons.favorite),
                     icon: Image.asset(
-                      "assets/${imageAsset.imagePath}.PNG",
-                      height: 100,
+                      "icons/${bodyTastes[index].iconImageFile}",
                     ),
                   );
                 }),
@@ -100,6 +101,6 @@ class Canvas extends ConsumerWidget {
   }
 
   Widget _buildImage(imageFile) {
-    return Image.asset("assets/$imageFile.PNG");
+    return Image.asset("assets/$imageFile");
   }
 }

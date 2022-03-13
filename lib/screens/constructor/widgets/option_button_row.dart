@@ -41,33 +41,23 @@ class OptionButtonRow extends ConsumerWidget {
           switch (index) {
             case 0:
               {
-                dishOption.state = Constants.OPTION_BODY;
+                dishOption.state = DishOptions.OPTION_FORM;
                 break;
               }
             case 1:
               {
-                dishOption.state = Constants.OPTION_FILLER;
+                dishOption.state = DishOptions.OPTION_FILLER;
                 break;
               }
             case 2:
               {
-                dishOption.state = Constants.OPTION_CREAM;
-                break;
-              }
-            case 3:
-              {
-                dishOption.state = Constants.OPTION_STYLE;
-                break;
-              }
-            case 4:
-              {
-                dishOption.state = Constants.OPTION_DECOR;
+                dishOption.state = DishOptions.OPTION_CREAM;
                 break;
               }
           }
-          print("OptionButtons: dishOption: ${dishOption.state} isSelected: $isSelected}");
+          print(
+              "OptionButtons: dishOption: ${dishOption.state} isSelected: $isSelected}");
         },
-        // buttons: const ["Форма", "Начинка", "Крем", "Стиль", "Декор", "Ярусы"],
         buttons: const ["Форма", "Начинка", "Крем"],
       ),
     );

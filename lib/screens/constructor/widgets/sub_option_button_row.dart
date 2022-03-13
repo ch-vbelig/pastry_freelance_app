@@ -10,11 +10,13 @@ class SubOptions extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final dishType = ref.watch(dishTypeProvider.state);
     final dishOption = ref.watch(dishOptionProvider.state);
-    final dishForm = ref.watch(dishFormOptionProvider.state);
+    final dishForm = ref.watch(dishFormProvider.state);
     final bodyImage = ref.watch(imageBodyProvider.state);
     final fillerImage = ref.watch(imageFillerProvider.state);
     final creamImage = ref.watch(imageCreamProvider.state);
 
+    final subMenu = ref.watch(dishSubMenuProvider.state);
+    final subMenuOptions = subMenu.state;
     final suggestions = images.where((image) {
       if (image.optionId == Constants.OPTION_BODY ||
           image.optionId == Constants.OPTION_FILLER ) {
@@ -32,25 +34,25 @@ class SubOptions extends ConsumerWidget {
       height: 120,
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
-          itemCount: suggestions.length,
+          itemCount: subMenuOptions!.length,
           itemBuilder: (context, index) {
-            var imageAsset = suggestions[index];
+            var subMenu = subMenuOptions[index];
             return IconButton(
               iconSize: 100,
               onPressed: () {
-                switch (imageAsset.optionId) {
-                  case Constants.OPTION_BODY:
-                    bodyImage.state = imageAsset.imagePath;
-                    break;
-                  case Constants.OPTION_FILLER:
-                    fillerImage.state = imageAsset.imagePath;
-                    break;
-                  case Constants.OPTION_CREAM:
-                    creamImage.state = imageAsset.imagePath;
-                    break;
-                }
+                // switch (imageAsset.optionId) {
+                //   case Constants.OPTION_BODY:
+                //     bodyImage.state = imageAsset.imagePath;
+                //     break;
+                //   case Constants.OPTION_FILLER:
+                //     fillerImage.state = imageAsset.imagePath;
+                //     break;
+                //   case Constants.OPTION_CREAM:
+                //     creamImage.state = imageAsset.imagePath;
+                //     break;
+                // }
               },
-              icon: Image.asset("assets/${imageAsset.imagePath}.PNG", height: 100,),
+              icon: Image.asset("icons/${subMenu.iconImageFile}", height: 100,),
               // child: Image.asset("assets/${imageAsset.imagePath}.PNG"),
             );
           }),

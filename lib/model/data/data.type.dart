@@ -1,11 +1,11 @@
-class DishType {
+class DishMenu {
   int? typeId;
   String typeName;
-  String iconImageName;
+  String iconImageFile;
 
-  DishType({
+  DishMenu({
     this.typeId,
     required this.typeName,
-    required this.iconImageName
+    required this.iconImageFile
   }) {}
 }
