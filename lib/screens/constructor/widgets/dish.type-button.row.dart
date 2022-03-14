@@ -10,10 +10,10 @@ class DishTypeButtonRow extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final dishTypeProviderState = ref.watch(dishTypeProvider.state);
-    final imageBodyProviderState = ref.watch(imageBodyProvider.state);
-    final imageFillerProviderState = ref.watch(imageFillerProvider.state);
-    final imageCreamProviderState = ref.watch(imageCreamProvider.state);
-    final imageFormProviderState = ref.watch(imageFormProvider.state);
+    final dishOption = ref.watch(dishOptionProvider.state);
+    final dishBody = ref.watch(dishBodyProvider.state);
+    final dishFiller = ref.watch(dishFillerProvider.state);
+    final dishCream = ref.watch(dishCreamProvider.state);
 
     // Build Image Icon for each dish type
     Widget _buildOption(int index, DishMenu dishType, StateController dishTypeProviderState) {
@@ -21,10 +21,10 @@ class DishTypeButtonRow extends ConsumerWidget {
       return GestureDetector(
         onTap: (){
           if (dishTypeProviderState.state != index){
-            imageBodyProviderState.state = 'place-holder';
-            imageFillerProviderState.state = 'place-holder';
-            imageCreamProviderState.state = 'place-holder';
-            imageFormProviderState.state = 'place-holder';
+            dishOption.state = DishOptions.OPTION_FORM;
+            dishBody.state = DishTastes.TASTE_NONE;
+            dishFiller.state = DishTastes.TASTE_NONE;
+            dishCream.state = DishTastes.TASTE_NONE;
           }
           dishTypeProviderState.state = index;
 

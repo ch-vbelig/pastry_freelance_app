@@ -1,7 +1,7 @@
 import 'package:bakecake_app/screens/constructor/widgets/canvas.dart';
 import 'package:bakecake_app/screens/constructor/widgets/dish.type-button.row.dart';
-import 'package:bakecake_app/screens/constructor/widgets/sub_option_button_row.dart';
 import 'package:bakecake_app/screens/constructor/widgets/option_button_row.dart';
+import 'package:bakecake_app/screens/constructor/widgets/sub_option_button_row_new.dart';
 import 'package:bakecake_app/screens/constructor/widgets/submit_button.dart';
 import 'package:bakecake_app/screens/constructor/widgets/type_button_row.dart';
 import 'package:flutter/material.dart';

@@ -41,17 +41,17 @@ class TypeButtonRow extends ConsumerWidget {
           switch (index) {
             case 0:
               {
-                dishType.state = Constants.TYPE_CAKE;
+                dishType.state = DishTypes.TYPE_CAKE;
                 break;
               }
             case 1:
               {
-                dishType.state = Constants.TYPE_CUPCAKE;
+                dishType.state = DishTypes.TYPE_CUPCAKE;
                 break;
               }
             case 2:
               {
-                dishType.state = Constants.TYPE_ICECREAM;
+                dishType.state = DishTypes.TYPE_ICECREAM;
                 break;
               }
           }

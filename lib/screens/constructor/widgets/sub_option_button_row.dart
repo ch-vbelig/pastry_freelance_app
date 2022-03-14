@@ -10,23 +10,23 @@ class SubOptions extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final dishType = ref.watch(dishTypeProvider.state);
     final dishOption = ref.watch(dishOptionProvider.state);
-    final dishForm = ref.watch(dishFormProvider.state);
+    // final dishForm = ref.watch(dishFormProvider.state);
     final bodyImage = ref.watch(imageBodyProvider.state);
     final fillerImage = ref.watch(imageFillerProvider.state);
     final creamImage = ref.watch(imageCreamProvider.state);
 
-    final subMenu = ref.watch(dishSubMenuProvider.state);
+    final subMenu = ref.watch(dishOptionIconProvider.state);
     final subMenuOptions = subMenu.state;
-    final suggestions = images.where((image) {
-      if (image.optionId == Constants.OPTION_BODY ||
-          image.optionId == Constants.OPTION_FILLER ) {
-        return image.typeId == dishType.state &&
-            image.optionId == dishOption.state &&
-            image.formId == dishForm.state;
-      } else {
-        return image.optionId == dishOption.state;
-      }
-    }).toList();
+    // final suggestions = images.where((image) {
+    //   if (image.optionId == Constants.OPTION_BODY ||
+    //       image.optionId == Constants.OPTION_FILLER ) {
+    //     return image.typeId == dishType.state &&
+    //         image.optionId == dishOption.state &&
+    //         image.formId == dishForm.state;
+    //   } else {
+    //     return image.optionId == dishOption.state;
+    //   }
+    // }).toList();
 
     return Container(
       alignment: Alignment.center,
