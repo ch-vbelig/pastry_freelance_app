@@ -1,9 +1,9 @@
-import 'dart:ffi';
-
 import 'package:bakecake_app/screens/constructor/cake.constructor.screen.dart';
-import 'package:english_words/english_words.dart';
+import 'package:bakecake_app/screens/login/login.page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import 'screens/login/registration.page.dart';
 
 void main() {
   runApp( const ProviderScope(child: MyApp()));
@@ -24,7 +24,12 @@ class MyApp extends StatelessWidget {
         ),
         scaffoldBackgroundColor: Colors.white
       ),
-      home: const CakeConstructorPage(),
+      home: LoginPage(),
+      routes: {
+        '/constructor': (context) => CakeConstructorPage(),
+        '/login': (context) => LoginPage(),
+        '/register': (context) => RegistrationPage(),
+      },
     );
   }
 }

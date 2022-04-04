@@ -4,6 +4,40 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 // defaults
 const transparentImageFile = 'place-holder.PNG';
 
+// final userProvider = FutureProvider<List<Todo>>((ref) async {
+//   //return Future.delayed(Duration(seconds: 2)).then((value) => fakeTodos);
+//   final _todosList = <Todo>[];
+//
+//   final response = await http.get(Uri.parse(
+//       'https://elegion-hack.herokuapp.com/api/user_tasks/?id_user=1'));
+//   final responseToRedmine = await http
+//       .get(Uri.parse('https://elegion-hack.herokuapp.com/redmine/issues/'));
+//
+//   if (response.statusCode == 200) {
+//     for (var i = 0;
+//         i < jsonDecode(utf8.decode(response.bodyBytes)).length;
+//         ++i) {
+//       _todosList
+//           .add(Todo.fromJson(jsonDecode(utf8.decode(response.bodyBytes))[i]));
+//     }
+//   } else {
+//     throw Exception('Failed to load our todos');
+//   }
+//
+//   if (responseToRedmine.statusCode == 200) {
+//     for (var i = 0;
+//         i < jsonDecode(utf8.decode(responseToRedmine.bodyBytes)).length;
+//         ++i) {
+//       _todosList
+//           .add(Todo.fromJson(jsonDecode(utf8.decode(responseToRedmine.bodyBytes))[i]));
+//     }
+//   } else {
+//     throw Exception('Failed to load redmine todos');
+//   }
+//
+//   return _todosList;
+// });
+
 // Dish properties
 final dishTypeProvider = StateProvider<int>((ref) => DishTypes.TYPE_CAKE);
 final dishFormProvider = StateProvider<int>((ref) => DishForms.FORM_ROUND);
